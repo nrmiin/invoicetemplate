@@ -12,6 +12,7 @@
     "html2canvas": "^1.0.0-rc.3",
     "jspdf": "^1.5.3",
     "jss-rtl": "^0.2.3",
+    "url-loader": "^2.0.0",
     "vue": "^2.6.10",
     "vue-html-to-paper": "^1.1.0",
     "vue-router": "^3.0.3",
