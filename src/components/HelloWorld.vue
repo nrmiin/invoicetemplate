@@ -4,33 +4,34 @@
       <div>
         <v-layout row wrap>
           <v-flex xs12 mb5>
-            <div class="headtitle">
+            <div class="page-title">
               <img
                 align="right"
-                alt="Vue logo"
+                alt="Factor logo"
                 src="./assets/logo_samin_tinter.png"
-                height="80"
-                width="80"
+                height="50"
+                width="50"
               />
               <div>
                 <div class="factor-title">
                   <h1>صورتحساب فروش کالا و خدمات</h1>
                 </div>
+                <div></div>
               </div>
             </div>
           </v-flex>
         </v-layout>
 
-        <v-layout row wrap class="mt-5">
+        <v-layout row wrap class="mt-2">
           <v-flex xs12 mb5>
             <template>
               <div v-for="seller in sellers" :key="seller.nom">
                 <v-responsive>
                   <div class="wrapper">
-                    <div class="right box1 text-xlarge text-bold">فروشنده</div>
-                    <div class="sellerInfo box2  text-normal">
+                    <div class="right box1 text-large text-bold">فروشنده</div>
+                    <div class="person-Info box2  text-small">
                       <div class="grid-container">
-                        <div class="item1">فروشنده : {{ seller.name }}</div>
+                        <div class="item1"> فروشنده : {{ seller.name }} </div>
                         <div class="item2">شناسه ملی : {{ seller.id }}</div>
                         <div class="item3">شماره ثبت : {{ seller.regNo }}</div>
                         <div class="item4">
@@ -44,7 +45,7 @@
                       </div>
                     </div>
 
-                    <div class="left box3  text-large text-medium ">
+                    <div class="left box3  text-medium text-normal">
                       تاریخ : ۱۳۹۲/۳/۴<br />شماره فاکتور: {{ clientFactornumber
                       }}<br />بارکد
                     </div>
@@ -60,8 +61,8 @@
               <div v-for="client in clients" :key="client.nom">
                 <v-responsive>
                   <div class="wrapper">
-                    <div class="right box1 text-xlarge text-bold">خریدار</div>
-                    <div class="sellerInfo box2 text-normal">
+                    <div class="right box1 text-large text-bold">خریدار</div>
+                    <div class="person-Info box2 text-small">
                       <div class="grid-container">
                         <div class="item1">
                           خریدار : {{ client.firstName }}&nbsp;{{
@@ -87,7 +88,7 @@
                       </div>
                     </div>
 
-                    <div class="left box3 text-large text-medium">
+                    <div class="left box3 text-normal text-medium">
                       شماره پیگیری : {{ trackNumber }}<br />بارکد
                     </div>
                   </div>
@@ -97,7 +98,7 @@
           </v-flex>
         </v-layout>
 
-        <v-layout row wrap justify-center class="mt-4 disable-initial-sort">
+        <v-layout row wrap justify-center class="mt-2 disable-initial-sort">
           <!--table with css design-->
           <div>
             <table>
@@ -105,7 +106,7 @@
                 <tr class="main">
                   <th class="main">ردیف</th>
                   <th class="main">کد کالا</th>
-                  <th class="main a">شرح کالا</th>
+                  <th class="main device-description">شرح کالا</th>
                   <th class="main">تعداد</th>
                   <th class="main">مبلغ واحد (ریال)</th>
                   <th class="main">مبلغ کل (ریال)</th>
@@ -117,13 +118,13 @@
               </thead>
 
               <tbody>
-                <tr v-for="(row, index) in rows" :key="index" class="bodytable">
+                <tr v-for="(row, index) in rows" :key="index" class="table-body">
 
-                    <td>{{ index }}</td>
+                    <td>{{ index  + 1}}</td>
 
 
                     <td>{{ row.deviceCode }}</td>
-                    <td><p class="m-1">{{ row.deviceDescription }}</p></td>
+                    <td><p class="m-1 text-small">{{ row.deviceDescription }}</p></td>
 
 
                     <td>{{ row.deviceCount }}</td>
@@ -134,32 +135,30 @@
                     <td>{{ row.taxDuty }}</td>
                     <td>{{ row.deviceCount * row.unitAmount-row.discount + row.taxDuty}}</td>
 
-
-
                 </tr>
               </tbody>
-              <thead>
+
                 <tr class="add">
-                  <th colspan="5" class="main">جمع کل (ریال)</th>
+                  <th colspan="5" class="main ">جمع کل (ریال)</th>
                   <td colspan="1" class="main">{{ sum_prices }}</td>
                   <td colspan="1" class="main">{{ sum_discounts }}</td>
                   <td colspan="1" class="main">{{ sum_prices_after_discount }}</td>
                   <td colspan="1" class="main">{{ sum_taxes }}</td>
                   <td colspan="1" class="main">{{ sum_final_prices }}</td>
                 </tr>
-                <tr class="add">
+                <tr class="totals">
                   <th colspan="10" class="description">توضیحات :</th>
                 </tr>
 
                 <tr>
-                  <th colspan="6" class="one">تاریخ تحویل:</th>
-                  <th colspan="4" class="one">ساعت تحویل:</th>
+                  <th colspan="6" class="end">تاریخ تحویل:</th>
+                  <th colspan="4" class="end">ساعت تحویل:</th>
                 </tr>
                 <tr>
-                  <th colspan="6" class="one">مهر و امضای فروشنده :</th>
-                  <th colspan="4" class="one">مهر و امضای گیرنده :</th>
+                  <th colspan="6" class="end">مهر و امضای فروشنده :</th>
+                  <th colspan="4" class="end">مهر و امضای گیرنده :</th>
                 </tr>
-              </thead>
+
             </table>
           </div>
         </v-layout>
@@ -288,7 +287,7 @@ export default {
           unitAmount: 50000,
           discount: 52000,
           taxDuty: 0,
-          amountFinal: 0
+
         },
         {
           id: 2,
@@ -302,7 +301,7 @@ export default {
           unitAmount: 450000,
           discount: 120000,
           taxDuty: 0,
-          amountFinal: 0
+
         },
         {
           id: 3,
@@ -314,10 +313,10 @@ export default {
             "فروشنده : دیجی‌کالا\n" +
             "رنگ : سفید",
           deviceCount: 3,
-          unitAmount: 0,
-          discount: 0,
-          taxDuty: 0,
-          amountFinal: 0
+          unitAmount: 435000,
+          discount: 10000,
+          taxDuty: 1000,
+
         }
       ]
     };
@@ -327,16 +326,25 @@ export default {
 
 <style lang="scss" scoped>
 .factor-container {
-  font-weight: 500;
+  font-weight: 400;
 }
-.factor-title {
+.page-title {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
   background-color: #ffffff;
   color: #414141;
-  padding: 20px;
-  text-align: center;
-  padding-top: 30px;
+
 }
-.sellerInfo {
+.factor-title {
+  font-size: 11px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.person-Info {
   color: #000000;
   padding: 20px;
   text-align: right;
@@ -377,16 +385,11 @@ export default {
   grid-area: faxno;
 }
 
-.wrapper {
+.wrapper {   /*wraps three boxes*/
   display: flex;
   flew-direction: row;
   align-items: stretch;
   justify-content: flex-start;
-}
-.left,
-.right {
-}
-.right {
 }
 
 .box1 {
@@ -433,8 +436,8 @@ export default {
   border: 2px solid #7c7c7c;
   min-width: 0px;
 }
-td,
-th {
+
+td, th {
   border: 1px solid #7c7c7c;
   text-align: center;
   padding: 0px;
@@ -451,13 +454,14 @@ table {
 th.main {
   background-color: #e8e8e8;
   color: #5c5c5c;
-  font-size: 1.1em;
+  font-size: 0.9em;
+  padding: 1px;
 }
-th.one {
+th.end {
   border: 0px;
   text-align: right;
   padding-bottom: 60px;
-  font-size: 1.2em;
+  font-size: 0.8em;
   padding-right: 10px;
 }
 th.description {
@@ -465,28 +469,25 @@ th.description {
   text-align: right;
   padding-bottom: 60px;
   padding-right: 10px;
-  font-size: 1.2em;
+  font-size: 0.8em;
 }
-tr.add {
-  border: 3px solid #7c7c7c;
+tr.totals {
+  border: 2px solid #7c7c7c;
 }
-tr.bodytable {
-  border-right: 3px solid #7c7c7c;
-  border-left: 3px solid #7c7c7c;
+tr.table-body {
+  border-right: 2px solid #7c7c7c;
+  border-left: 2px solid #7c7c7c;
 }
 tr.main {
-  border-right: 3px solid #7c7c7c;
-  border-left: 3px solid #7c7c7c;
-  border-top: 3px solid #7c7c7c;
+  border-right: 2px solid #7c7c7c;
+  border-left: 2px solid #7c7c7c;
+  border-top: 2px solid #7c7c7c;
 }
-.headtitle {
-  font-size: 2em;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-.a {
+
+.device-description {
   width: 30%;
   max-width: 0;
 }
+
+
 </style>

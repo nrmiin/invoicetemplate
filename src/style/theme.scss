@@ -32,7 +32,6 @@ body {
   background-color: #70557E;
   margin: 0;
   font-family:  $font-family !important;
-
 }
 
 h1, h2, h3, h4, h5, h6, input, textarea {
@@ -65,11 +64,11 @@ h1, h2, h3, h4, h5, h6, input, textarea {
 }
 
 .text-normal {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 .text-large {
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 
 .text-xlarge {
@@ -93,7 +92,7 @@ h1, h2, h3, h4, h5, h6, input, textarea {
 }
 
 .text-medium {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .text-bold {
@@ -235,17 +234,3 @@ blockquote {
 }
 
 
-@page {
-  size: 29.7cm 21cm;
-  margin: 1mm 1mm 1mm 1mm;
-  /* change the margins as you want them to be. */
-}
-
-@media print {
-  body {
-    width: 29.7cm;
-    height: 21cm;
-
-    /* change the margins as you want them to be. */
-  }
-}
