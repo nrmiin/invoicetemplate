@@ -1,20 +1,20 @@
 <template>
     <div>
 
-        <HelloWorld class="factor"></HelloWorld>
+        <invoice class="factor"></invoice>
 
         <Label class="label"></Label>
     </div>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld';
+    import invoice from './components/invoice';
     import Label from './components/Label';
 
     export default {
         name: 'App',
         components: {
-            HelloWorld,
+            invoice,
             Label,
         },
         data () {
