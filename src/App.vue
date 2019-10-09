@@ -1,17 +1,21 @@
 <template>
-    <div class="app-simulator">
+    <div>
 
         <HelloWorld class="factor"></HelloWorld>
+
+        <Label class="label"></Label>
     </div>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld'
+    import HelloWorld from './components/HelloWorld';
+    import Label from './components/Label';
 
     export default {
         name: 'App',
         components: {
-            HelloWorld
+            HelloWorld,
+            Label,
         },
         data () {
             return {
@@ -32,5 +36,14 @@
         background: #ffffff;
 
     }
+   .label {
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale;
+       text-align: right;
+       color: #2c3e50;
+       margin-top: 30px;
+       background: #ffffff;
+
+   }
 
 </style>
